@@ -1,0 +1,281 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template Made by Amy Handlan
+% First Draft: September 2020
+% Uploaded: September 2021
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[aspectratio=1610, english, 12pt, usenames, dvipsnames]{beamer}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+%\synctex=-1
+\usepackage{amsmath, mathtools}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{lmodern}
+\usepackage{color}
+\usepackage{multicol,makecell}
+\usepackage{lipsum}
+\usepackage{booktabs} %so can use \midrule 
+\usepackage{tabularx}
+\providecommand{\tabularnewline}{\\}
+\usepackage[normalem]{ulem}
+\usetikzlibrary{shapes, arrows, matrix,chains,positioning,decorations.pathreplacing, backgrounds, tikzmark}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+\usepackage{soul}
+\usepackage{centernot}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% Base Slide Template and Colors %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%% Base Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usetheme{Frankfurt}
+
+%%%%%%%%%%%%% Define Colors %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% NEURTAL BLUE THEME %%%
+\definecolor{basecolor}{RGB}{0,75,150} % Navy Blue
+\colorlet{darkbasecolor}{basecolor!60!black} % Section header slightly darker
+\colorlet{highlightcolor}{white} % highlightcolor = stripe, make white to erase it
+
+%%% Assign Colors to the Theme%%%
+\usecolortheme[named=basecolor]{structure}
+\setbeamercolor{section in head/foot}{fg=white, bg=darkbasecolor}
+
+%other colors for quick reference and for highlighting
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\sethlcolor{yellow} %HIGHLIGHTING
+\renewcommand<>{\hl}[1]{\only#2{\beameroriginal{\hl}}{#1}}
+
+%%%%%%%%%%%%% Title Page Style %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{title page}[default][colsep=-4bp, shadow=false]
+
+%%%%%%%%%%%%% Frame Title Style %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{frametitle}{	\nointerlineskip
+	\begin{beamercolorbox}[sep=0.3cm,ht=1.8em,wd=\paperwidth, shadow=False]{frametitle}
+		\begin{tikzpicture}[overlay,remember picture]
+			\node[anchor=west, align=left] at (-.2,0.17){\insertframetitle};
+		\end{tikzpicture}
+\end{beamercolorbox}}
+
+%%%%%%%%%%%%% Option to Widen Slide %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\Wider[2][3em]{%
+	\makebox[\linewidth][c]{%
+		\begin{minipage}{\dimexpr\textwidth+#1\relax}
+			\raggedright#2
+\end{minipage}}}
+
+%%%%%%%%%%% Spacing Shortcuts %%%%%%%%%%%%%%
+\newcommand{\bs}{\bigskip{}}
+\newcommand{\ms}{\medskip{}}
+
+%%%%%%%%%%%%% Header Style (with Sections) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{headline}{ \begin{beamercolorbox}{section in head/foot}
+		\vskip2pt\insertsectionnavigationhorizontal{\paperwidth}{}{}\vskip2pt
+\end{beamercolorbox}}
+
+%%%%%%%%%%%%% Footer Style %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% To remove the navigation symbols from the bottom of slides%
+\setbeamertemplate{navigation symbols}{} 
+%Custom Footer
+\setbeamertemplate{footline}{
+	\hbox{%
+		\setbeamercolor{footercolor}{bg=white,fg=white!50!black}
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=2ex,left]{footercolor}%
+			\hspace*{2ex} \insertshortauthor\hspace*{.5ex}  (\insertshortinstitute)
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=2ex,center]{footercolor}%
+			\insertshorttitle
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=2ex,right]{footercolor}%
+			\insertframenumber{}
+			%			 / \inserttotalframenumber %uncomment to add total slides
+			\hspace*{4ex} 
+	\end{beamercolorbox}}%
+	\vskip0pt}
+
+%%%%%%%%%%%%% Bullet Style %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{itemize item}[triangle]
+\setbeamertemplate{itemize subitem}[circle]
+\setbeamertemplate{section in toc}[circle] %default, circle, square
+\usepackage{varwidth}
+
+%%%%%%%%%%%%%%%%% Footnote size %%%%%%%%%%%%%%%%%%%%
+\setbeamerfont{footnote}{size=\tiny}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% Title Page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+\title[short title]{\textbf{Title}\\ Subtitle}
+%\subtitle{ }
+\author[last name]{Author Name\footnote{Email: ,  Website: \url{www.google.com}}}
+
+\institute[Institution]{Institution} 
+\date{\today}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{appendixnumberbeamer} 
+\usepackage[longnamesfirst, sort]{natbib}
+\bibliographystyle{elsarticle-harv}
+\urlstyle{same} %makes url the same font as text, not courier default
+\newcommand{\doi}[1]{\url{#1}}
+
+
+\makeatletter
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% DOCUMENT START %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+	
+	\section{Introduction}
+	
+	\begin{frame}
+		\maketitle
+	\end{frame}
+	
+	
+	
+	
+	\begin{frame}{Introduction} \label{introduction}
+		\begin{itemize}
+			\item Motivation: \ms 
+			\begin{enumerate}
+				\item one \ms 
+				\item two \ms 
+				\item three \bs 
+			\end{enumerate}
+			\item This Project:\ms
+			\begin{itemize}
+				\item Button to Appendix \hyperlink{appendixgraphs}{\beamerbutton{Appendix: Graphs}} \bs
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TABLE OF CONTENTS AFTER INTRO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%% Comment out this section if you do not want TOC transition slides *********************
+	\setbeamertemplate{section in toc}{%
+		\leavevmode\leftskip=2ex%
+		\llap{%
+			\usebeamerfont*{section number projected}%
+			\usebeamercolor{section number projected}%
+			\begin{pgfpicture}{-1ex}{0ex}{1ex}{2ex} % Section number in circle
+				\color{bg}
+				\pgfpathcircle{\pgfpoint{0pt}{.75ex}}{1.2ex}
+				\pgfusepath{fill}
+				\pgftext[base]{\color{fg}\inserttocsectionnumber}
+			\end{pgfpicture}\kern1.25ex%
+		}%
+		\underline{\inserttocsection}\par%
+	}
+	
+	\AtBeginSection[]
+	{ 
+		\begin{frame}[noframenumbering, plain]{Presentation Outline}
+			\tableofcontents[currentsection]
+		\end{frame}
+	}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section{Section A}
+	
+	\begin{frame}{Slide in Section A}
+		
+	\end{frame}
+	
+	
+	\section{Section B}
+	
+	\begin{frame}{Slide in Section B}
+		
+	\end{frame}
+	
+	
+	
+	\section{Conclusion}
+	
+	\begin{frame}{Conclusion}
+		
+	\end{frame}
+	
+	
+	
+	
+	
+	\setbeamertemplate{footline}{
+		\hbox{%
+			\setbeamercolor{footercolor}{bg=white,fg=white!50!black}
+			\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=2ex,left]{footercolor}%
+				\hspace*{2ex} \insertshortauthor\hspace*{.5ex}  (\insertshortinstitute)
+			\end{beamercolorbox}%
+			\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=2ex,center]{footercolor}%
+				\insertshorttitle
+			\end{beamercolorbox}%
+			\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=2ex,right]{footercolor}%
+				\hspace*{4ex} 
+		\end{beamercolorbox}}%
+		\vskip0pt%
+	}
+	
+	
+	\begin{frame}[noframenumbering]
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		%%%%%% BREAK BEFORE REFERENCES AND APPENDIX %%%%%%%%%%%%%%%%
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\begin{center}
+			\Huge{\textcolor{basecolor}{Thank you!}}
+		\end{center}
+	\end{frame}
+	
+	\appendix %makes section headers not show up, can make separate section headers for appendix
+	\setcounter{section}{0}
+	
+	
+	
+	\section*{References}
+	\begin{frame}[t,noframenumbering,]{References} %add allowframebreaks if long reference list
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		%%%%%%%%REFERENCES%%%%%%%%%%%%
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		%	\tiny
+		%	\bibliography{ } %Bib File
+		
+	\end{frame}
+	
+	\section*{Tables}
+	\begin{frame}[noframenumbering]{Appendix - Tables}
+		
+	\end{frame}
+	
+	\section*{Graphs}
+	\begin{frame}[noframenumbering]{Appendix - Graphs} \label{appendixgraphs}
+		\vfill 
+		\begin{center}
+			[Graphs]
+		\end{center}
+		\vfill 
+		\hfill 
+		\footnotesize{Button back to Introduction \hyperlink{introduction}{\beamerbutton{Back}}}
+	\end{frame}
+	
+\end{document}
